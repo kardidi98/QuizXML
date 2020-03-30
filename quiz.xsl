@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    exclude-result-prefixes="xs"
+    version="2.0">
+    <xsl:template match="/">
+        <head>
+            <title>Quiz</title>
+            <link href="default.css" rel="stylesheet" type="text/css" media="all" />
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+        </head>
+        <body>
+            <div style="padding:30px;background-color:#16A085;">
+                
+                <div >
+                    <h1 align="center" style="color:white;">Quiz en ligne</h1>
+                    <br/>
+                    <div id="menu" align="center">
+                        <ul>
+                            <li class="menu">
+                                <a href="#" onclick="$('#score').hide();$('#start').fadeIn();$('.questionnaire').hide();">Accueil</a></li>
+                            <li class="menu"><a href="#" onclick="$('#start').hide(); $('#score').hide();$('.questionnaire').hide();$('.debutant').fadeIn();">Débutant</a></li>
+                            <li class="menu"><a href="#" onclick="$('#score').hide();$('#start').hide();$('.questionnaire').hide();$('.intermediaire').fadeIn();">Intermidaire</a></li>
+                            <li class="menu"><a href="#" onclick="$('#score').hide();$('#start').hide();$('.questionnaire').hide();$('.expert').fadeIn();">Expert</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+          
+            <div class="container" style="padding:50px;">
+                <div class="row" >
+                    
+                    <div  class="col-sm-4" align="center">
+                        <div class="title">
+                            <h3>Questionnaire débutant</h3>
+                        </div>
+                        <p>Ce niveau contient des questions simples auxquelles vous pouvez répondre facilement</p>
+                    </div>   
+                    <div  class="col-sm-4" align="center">
+                        <div class="title">
+                            <h3>Questionnaire intermidiare </h3>
+                        </div>
+                        <p>C'est une niveau dont la difficulté est un peu elevée par rapport au niveau débutant</p>
+                    </div>  
+                    <div  class="col-sm-4" align="center">
+                        <div class="title">
+                            <h3>Questionnaire expert</h3>
+                        </div>
+                        <p>Ici les choses deviennent un peu compliquée. Bonne chance :)</p>
+                    </div>
+                </div>
+            </div>
+            <hr/>
+            <center>
+                <button id="start" class="btn btn-primary" style="margin-top:20px;background-color:#16A085;" onclick="$('.questionnaire').hide();$('.debutant').fadeIn();$('#start').hide();">Commencer</button>
+            </center>
+            <div  style="margin-bottom:100px;">
+                <xsl:for-each select="questionnaires/questionnaire">
+                    <xsl:variable name="niveau" >
+                        <xsl:value-of select="@niveau"/>
+                    </xsl:variable>
+                    
+                    <div class="{@niveau} container questionnaire" style="display:none;">
+                        <h2 ><xsl:value-of select="position()"/>-<xsl:value-of select="titre"/>:</h2> 
+                        <div class="row" style="backgound-color:#1ABC9C;">
+                            <xsl:for-each select="questions/question">
+                                <div class="col-sm-6">
+                                    <div class="rounded"  style="box-shadow:0 0 8px #16A085;padding:20px;margin-top:20px;margin-bottom:15px;height:210px;">
+                                        <p style="text-decoration:underline;"><strong style="color:#16A085;"><xsl:value-of select="position()"/>-   </strong><xsl:value-of select="enonce"/></p>
+                                        <ul  id="{$niveau}" style="list-style-type: none;margin-left:25px;">
+                                            
+                                            <xsl:for-each select="reponse">
+                                                <li class="{@score}"><strong><xsl:value-of select="position()-1"/>)-</strong><xsl:value-of select="child::text()"/>.</li> 
+                                            </xsl:for-each>
+                                        </ul>
+                                    </div>
+                                    
+                                    <input class="form-control {$niveau}" type="text"  placeholder="Repondez 0, 1, 2 ou 3" style="width:50%;background-color:white:" />  
+                                </div>
+                                
+                            </xsl:for-each>
+                            
+                        </div>
+                        
+                    
+                        <button class="btn btn-primary result" style="float:right;margin-top:20px;background-color:#16A085;" onclick="resultat({position()});$('#score').fadeIn();">Résultat</button>
+                    </div>
+                    
+                    
+                </xsl:for-each>
+                <h2 id="score" align="center" style="margin-top:100px;margin-bottom:150px;"></h2>
+            </div>
+            <hr/>
+           <footer>
+               <p align="center">Copyright© 2020</p>
+           </footer>
+        </body>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script >
+            
+            $('.questionnaire').hide();
+            $("#score").hide();
+            
+             function resultat(position){
+                $("#score").hide();
+                if(position==1){
+                    var score=0;
+                   var reponse=$(".debutant input");
+                   var suggest=$(".debutant ul");
+                   var i=0;
+                   for(var r of reponse){
+                       
+                        if(r.value==0){
+                            score+=parseInt(suggest[i].getElementsByTagName('li')[0].className);
+                            
+                        }
+                        if(r.value==1){
+                            score+=parseInt(suggest[i].getElementsByTagName('li')[2].className);
+                        
+                        }
+                        if(r.value==2){
+                            score+=parseInt(suggest[i].getElementsByTagName('li')[3].className);
+                        
+                        }
+                        if(r.value==3){
+                            score+=parseInt(suggest[i].getElementsByTagName('li')[3].className);
+                        
+                        }
+                        i++;
+                   }
+                   document.getElementById("score").innerHTML="Résultat: "+score+"/"+reponse.length;
+                   $("#score").fadeIn();
+                }
+                else if(position==2){
+                     var score=0;
+                     
+                     var reponse=$(".intermediaire input");
+                     var suggest=$(".intermediaire ul");
+                     var i=0;
+                     for(var r of reponse){
+                     if(r.value==0){
+                     score+=parseInt(suggest[i].getElementsByTagName('li')[0].className);
+                     
+                     }
+                     if(r.value==1){
+                     score+=parseInt(suggest[i].getElementsByTagName('li')[2].className);
+                     
+                     }
+                     if(r.value==2){
+                     score+=parseInt(suggest[i].getElementsByTagName('li')[3].className);
+                     
+                     }
+                     if(r.value==3){
+                     score+=parseInt(suggest[i].getElementsByTagName('li')[3].className);
+                     
+                     }
+                     i++;
+                     }
+                     document.getElementById("score").innerHTML="Résultat: "+score+"/"+reponse.length;
+                     
+                }
+                else {
+                     var score=0;
+                    $("#score").hide();
+                    var reponse=$(".expert input");
+                    var suggest=$(".expert ul");
+                    var i=0;
+                    for(var r of reponse){
+                    if(r.value==0){
+                    score+=parseInt(suggest[i].getElementsByTagName('li')[0].className);
+                    
+                    }
+                    if(r.value==1){
+                    score+=parseInt(suggest[i].getElementsByTagName('li')[2].className);
+                    
+                    }
+                    if(r.value==2){
+                    score+=parseInt(suggest[i].getElementsByTagName('li')[3].className);
+                    
+                    }
+                    if(r.value==3){
+                    score+=parseInt(suggest[i].getElementsByTagName('li')[3].className);
+                    
+                    }
+                    i++;
+                    }
+                    document.getElementById("score").innerHTML="Résultat: "+score+"/"+reponse.length;
+                   
+                }
+             
+             }
+            
+        </script>
+    </xsl:template>
+</xsl:stylesheet>
