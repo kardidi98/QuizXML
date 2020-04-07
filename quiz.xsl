@@ -52,9 +52,9 @@
                 </div>
             </div>
             <hr/>
-            <center>
+            <div style="text-align: center;">
                 <button id="start" class="btn btn-primary" style="margin-top:20px;background-color:#16A085;" onclick="$('.questionnaire').hide();$('.debutant').fadeIn();$('#start').hide();">Commencer</button>
-            </center>
+            </div>
             <div  style="margin-bottom:100px;">
                 <xsl:for-each select="questionnaires/questionnaire">
                     <xsl:variable name="niveau" >
@@ -63,7 +63,7 @@
                     
                     <div class="{@niveau} container questionnaire" style="display:none;">
                         <h2 ><xsl:value-of select="position()"/>-<xsl:value-of select="titre"/>:</h2> 
-                        <div class="row" style="backgound-color:#1ABC9C;">
+                        <div class="row" >
                             <xsl:for-each select="questions/question">
                                 <div class="col-sm-6">
                                     <div class="rounded"  style="box-shadow:0 0 8px #16A085;padding:20px;margin-top:20px;margin-bottom:15px;height:210px;">
