@@ -13,9 +13,9 @@
             <div style="padding:30px;background-color:#16A085;">
                 
                 <div >
-                    <h1 align="center" style="color:white;">Quiz en ligne</h1>
+                    <h1  style="color:white;text-align:center;">Quiz en ligne</h1>
                     <br/>
-                    <div id="menu" align="center">
+                    <div id="menu" style="text-align:center;">
                         <ul>
                             <li class="menu">
                                 <a href="#" onclick="$('#score').hide();$('#start').fadeIn();$('.questionnaire').hide();">Accueil</a></li>
@@ -31,19 +31,19 @@
             <div class="container" style="padding:50px;">
                 <div class="row" >
                     
-                    <div  class="col-sm-4" align="center">
+                    <div  class="col-sm-4" style="text-align:center;">
                         <div class="title">
                             <h3>Questionnaire débutant</h3>
                         </div>
                         <p>Ce niveau contient des questions simples auxquelles vous pouvez répondre facilement</p>
                     </div>   
-                    <div  class="col-sm-4" align="center">
+                    <div  class="col-sm-4" style="text-align:center;">
                         <div class="title">
                             <h3>Questionnaire intermidiare </h3>
                         </div>
                         <p>C'est une niveau dont la difficulté est un peu elevée par rapport au niveau débutant</p>
                     </div>  
-                    <div  class="col-sm-4" align="center">
+                    <div  class="col-sm-4" style="text-align:center;">
                         <div class="title">
                             <h3>Questionnaire expert</h3>
                         </div>
@@ -76,7 +76,7 @@
                                         </ul>
                                     </div>
                                     
-                                    <input class="form-control {$niveau}" type="text"  placeholder="Repondez 0, 1, 2 ou 3" style="width:50%;background-color:white:" />  
+                                    <input class="form-control {$niveau}" type="text"  placeholder="Repondez 0, 1, 2 ou 3" style="width:50%;background-color:white;" />  
                                 </div>
                                 
                             </xsl:for-each>
@@ -89,11 +89,11 @@
                     
                     
                 </xsl:for-each>
-                <h2 id="score" align="center" style="margin-top:100px;margin-bottom:150px;"></h2>
+                <h2 id="score"  style="margin-top:100px;margin-bottom:150px;text-align:center;"></h2>
             </div>
             <hr/>
            <footer>
-               <p align="center">Copyright© <script>
+               <p style="text-align:center;">Copyright© <script>
                    var CurrentYear = new Date().getFullYear()
                    document.write(CurrentYear)
                </script>.</p>
