@@ -6,9 +6,9 @@
     <xsl:template match="/">
         <head>
             <title>Quiz</title>
-            <link href="default.css" rel="stylesheet" type="text/css" media="all" />
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
-        </head>
+            <link href="default.css" rel="stylesheet" type="text/css" media="all"/>
+            <!-- Bootstrap CSS -->
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"/></head>
         <body>
             <div style="padding:30px;background-color:#16A085;">
                 
@@ -93,106 +93,132 @@
             </div>
             <hr/>
            <footer>
-               <p align="center">Copyright© 2020</p>
+               <p align="center">Copyright© <script>
+                   var CurrentYear = new Date().getFullYear()
+                   document.write(CurrentYear)
+               </script>.</p>
            </footer>
         </body>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script >
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+        
+        <script>
             
             $('.questionnaire').hide();
             $("#score").hide();
             
-             function resultat(position){
+            function resultat(position){
+            $("#score").hide();
+            if(position==1){
+            var score=0;
+            var reponse=$(".debutant input");
+            var suggest=$(".debutant ul");
+            var i=0;
+            var full=true;
+            var valeurFausse=false;
+            for(var r of reponse){
+            if(r.value == "")
+                full=false;
+            
+            else if(r.value==0){
+                score+=parseInt(suggest[i].getElementsByTagName('li')[0].className);
+            
+            }
+            else if(r.value==1){
+                score+=parseInt(suggest[i].getElementsByTagName('li')[1].className);
+            
+            }
+            else if(r.value==2){
+                score+=parseInt(suggest[i].getElementsByTagName('li')[2].className);
+            
+            }
+            else if(r.value==3){
+                score+=parseInt(suggest[i].getElementsByTagName('li')[3].className);
+            
+            }
+            else valeurFausse=true;
+            i++;
+            }
+            
+            }
+            else if(position==2){
+            var score=0;
+            
+            var reponse=$(".intermediaire input");
+            var suggest=$(".intermediaire ul");
+            var i=0;
+            for(var r of reponse){
+            if(r.value == "")
+            full=false;
+            
+            else if(r.value==0){
+            score+=parseInt(suggest[i].getElementsByTagName('li')[0].className);
+            
+            }
+            else if(r.value==1){
+            score+=parseInt(suggest[i].getElementsByTagName('li')[1].className);
+            
+            }
+            else if(r.value==2){
+            score+=parseInt(suggest[i].getElementsByTagName('li')[2].className);
+            
+            }
+            else if(r.value==3){
+            score+=parseInt(suggest[i].getElementsByTagName('li')[3].className);
+            
+            }
+            else valeurFausse=true;
+            i++;
+            }
+            
+            
+            }
+            else {
+                var score=0;
                 $("#score").hide();
-                if(position==1){
-                    var score=0;
-                   var reponse=$(".debutant input");
-                   var suggest=$(".debutant ul");
-                   var i=0;
-                   for(var r of reponse){
-                       
-                        if(r.value==0){
-                            score+=parseInt(suggest[i].getElementsByTagName('li')[0].className);
-                            
-                        }
-                        if(r.value==1){
-                            score+=parseInt(suggest[i].getElementsByTagName('li')[2].className);
-                        
-                        }
-                        if(r.value==2){
-                            score+=parseInt(suggest[i].getElementsByTagName('li')[3].className);
-                        
-                        }
-                        if(r.value==3){
-                            score+=parseInt(suggest[i].getElementsByTagName('li')[3].className);
-                        
-                        }
-                        i++;
-                   }
-                   document.getElementById("score").innerHTML="Résultat: "+score+"/"+reponse.length;
-                   $("#score").fadeIn();
+                var reponse=$(".expert input");
+                var suggest=$(".expert ul");
+                var i=0;
+                for(var r of reponse){
+                if(r.value == "")
+                full=false;
+                
+                else if(r.value==0){
+                score+=parseInt(suggest[i].getElementsByTagName('li')[0].className);
+                
                 }
-                else if(position==2){
-                     var score=0;
-                     
-                     var reponse=$(".intermediaire input");
-                     var suggest=$(".intermediaire ul");
-                     var i=0;
-                     for(var r of reponse){
-                     if(r.value==0){
-                     score+=parseInt(suggest[i].getElementsByTagName('li')[0].className);
-                     
-                     }
-                     if(r.value==1){
-                     score+=parseInt(suggest[i].getElementsByTagName('li')[2].className);
-                     
-                     }
-                     if(r.value==2){
-                     score+=parseInt(suggest[i].getElementsByTagName('li')[3].className);
-                     
-                     }
-                     if(r.value==3){
-                     score+=parseInt(suggest[i].getElementsByTagName('li')[3].className);
-                     
-                     }
-                     i++;
-                     }
-                     document.getElementById("score").innerHTML="Résultat: "+score+"/"+reponse.length;
-                     
+                else if(r.value==1){
+                score+=parseInt(suggest[i].getElementsByTagName('li')[1].className);
+                
                 }
-                else {
-                     var score=0;
-                    $("#score").hide();
-                    var reponse=$(".expert input");
-                    var suggest=$(".expert ul");
-                    var i=0;
-                    for(var r of reponse){
-                    if(r.value==0){
-                    score+=parseInt(suggest[i].getElementsByTagName('li')[0].className);
-                    
-                    }
-                    if(r.value==1){
-                    score+=parseInt(suggest[i].getElementsByTagName('li')[2].className);
-                    
-                    }
-                    if(r.value==2){
-                    score+=parseInt(suggest[i].getElementsByTagName('li')[3].className);
-                    
-                    }
-                    if(r.value==3){
-                    score+=parseInt(suggest[i].getElementsByTagName('li')[3].className);
-                    
-                    }
-                    i++;
-                    }
+                else if(r.value==2){
+                score+=parseInt(suggest[i].getElementsByTagName('li')[2].className);
+                
+                }
+                else if(r.value==3){
+                score+=parseInt(suggest[i].getElementsByTagName('li')[3].className);
+                
+                }
+                else valeurFausse=true;
+                i++;
+                }
+                
+                
+                }
+                if(full==false){
+                    alert("Vous n'avez pas répondu à toutes les questions!");
+                
+                }
+                else if(valeurFausse==true){
+                       alert("Vous avez donné une réponse inacceptable!");
+                }
+                else{
+                     $('#score').fadeIn();
                     document.getElementById("score").innerHTML="Résultat: "+score+"/"+reponse.length;
-                   
+                    
                 }
-             
-             }
+            }
             
         </script>
     </xsl:template>
