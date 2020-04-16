@@ -14,7 +14,7 @@
 			</question>
 			<question>
 				<enonce>À quel réalisateur français doit-on le film "Banzaï" ?</enonce>
-				<reponse id="q2R1" score="1">Claude Sautet</reponse>
+				<reponse id="q2R1" score="0">Claude Sautet</reponse>
 				<reponse id="q2R2" score="0">Claude Chabrol</reponse>
 				<reponse id="q2R3" score="1">Claude Zidi</reponse>
 				<reponse id="q2R4" score="0">Claude Lelouch</reponse>
@@ -95,6 +95,63 @@
 				<reponse id="q23R3" score="0">120</reponse>
 				<reponse id="q23R4" score="0">98</reponse>
 			</question>
+			<question>
+				<enonce> Où se trouvent les glandes sudoripares d'un chien</enonce>
+				<reponse id="q33R1" score="1"> Sous ses pattes</reponse>
+				<reponse id="q33R2" score="0">Sous sa langue</reponse>
+				<reponse id="q33R3" score="0">Entre ses deux pattes arrière</reponse>
+				<reponse id="q33R4" score="0">J'vous demande où ça vous chatouille, moi ?</reponse>
+			</question>
+			<question>
+				<enonce>Qui raconte les aventures de Sherlock Holmes ?</enonce>
+				<reponse id="q43R1" score="0">Sherlock Holmes Jr.</reponse>
+				<reponse id="q43R2" score="0">Agatha Christie</reponse>
+				<reponse id="q43R3" score="1">Watson</reponse>
+				<reponse id="q43R4" score="0">Lui-même</reponse>
+			</question>
+			<question>
+				<enonce>Qui fut le quarantième président des USA ?</enonce>
+				<reponse id="q53R1" score="0">Nixon</reponse>
+				<reponse id="q53R2" score="0">Bush</reponse>
+				<reponse id="q53R3" score="1">Reagan</reponse>
+				<reponse id="q53R4" score="0">Clinton</reponse>
+			</question>
+			<question>
+				<enonce>Que signifie "Bistro" en russe ?</enonce>
+				<reponse id="q63R1" score="0">Dîner</reponse>
+				<reponse id="q63R2" score="1">Vite</reponse>
+				<reponse id="q63R3" score="0">Bisexuel</reponse>
+				<reponse id="q63R4" score="0">Hips... j'sais pas</reponse>
+			</question>
+			<question>
+				<enonce>Combien y a-t-il de miles marins dans un degré de latitude ?</enonce>
+				<reponse id="q73R1" score="0">32</reponse>
+				<reponse id="q73R2" score="0">46</reponse>
+				<reponse id="q73R3" score="0">51</reponse>
+				<reponse id="q73R4" score="1">60</reponse>
+			</question>
+			<question>
+				<enonce>Qui a fondé l'Académie Française ?</enonce>
+				<reponse id="q83R1" score="1">Le cardinal de Richelieu</reponse>
+				<reponse id="q83R2" score="0">Bertold Brecht</reponse>
+				<reponse id="q83R3" score="0">Molière</reponse>
+				<reponse id="q83R4" score="0">Goncourt</reponse>
+			</question>
+			<question>
+				<enonce>Quel est le plus long fleuve d'Europe occidentale ?</enonce>
+				<reponse id="q93R1" score="0">Le Danube</reponse>
+				<reponse id="q93R2" score="0">Le Rhône</reponse>
+				<reponse id="q93R3" score="1">Le Rhin</reponse>
+				<reponse id="q93R4" score="0">La Loire</reponse>
+			</question>
+			<question>
+				<enonce>Qui est inséparable de Bonnie Parker ?</enonce>
+				<reponse id="q103R1" score="1">Clyde Barrow</reponse>
+				<reponse id="q103R2" score="0">Serge Gainsbourg</reponse>
+				<reponse id="q103R3" score="0">Edouard Waterman</reponse>
+				<reponse id="q103R4" score="0">Louis XIV</reponse>
+			</question>
+			
 		</questions>
 	</questionnaire>
 	
@@ -116,11 +173,60 @@
 				<reponse id="q22R4" score="0">Lens</reponse>
 			</question>
 			<question>
+				<enonce>Comment appelle-t-on le versant Nord d'une vallee ?</enonce>
+				<reponse id="q32R1" score="0">L'adret</reponse>
+				<reponse id="q32R2" score="0">Le coteau</reponse>
+				<reponse id="q32R3" score="1">L'ubac</reponse>
+				<reponse id="q32R4" score="0">Le Nord</reponse>
+			</question>
+			<question>
+				<enonce>Qui est le dieu du Soleil dans l'ancienne Egypte ?</enonce>
+				<reponse id="q42R1" score="0">Rî</reponse>
+				<reponse id="q42R2" score="1">Râ</reponse>
+				<reponse id="q42R3" score="0">Rû</reponse>
+				<reponse id="q42R4" score="0">Rô</reponse>
+			</question>
+			<question>
+				<enonce>Quel est le nom du docteur dans Cluedo ?</enonce>
+				<reponse id="q15R1" score="0">Docteur Jekyll</reponse>
+				<reponse id="q52R2" score="0">Docteur Violet</reponse>
+				<reponse id="q52R4" score="0">Docteur Blunt</reponse>
+				<reponse id="q52R3" score="1">Docteur Olive</reponse>
+			</question>
+			<question>
+				<enonce>Quelle est la capitale des Bermudes ?</enonce>
+				<reponse id="q62R1" score="1">Hamilton</reponse>
+				<reponse id="q62R2" score="0">Kingston</reponse>
+				<reponse id="q62R3" score="0">Cottenham</reponse>
+				<reponse id="q62R4" score="0">Greenfarmer</reponse>
+			</question>
+			<question>
+				<enonce>Quel a été le premier nom du jeu de boules ?</enonce>
+				<reponse id="q72R1" score="0">La pétanque</reponse>
+				<reponse id="q72R2" score="0">Le Tire-Pointe</reponse>
+				<reponse id="q72R3" score="1">Le Boulingrins</reponse>
+				<reponse id="q72R4" score="0">Le Gagne-Pastis</reponse>
+			</question>
+			<question>
+				<enonce>Quel être "marche à 4 pattes le matin, à 2 le midi et à 3 le soir" ?</enonce>
+				<reponse id="q82R1" score="0">Le chien</reponse>
+				<reponse id="q82R2" score="0">L'alcoolique</reponse>
+				<reponse id="q82R3" score="1">L'homme</reponse>
+				<reponse id="q82R4" score="0">E.T.</reponse>
+			</question>
+			<question>
+				<enonce>Quel est le nom officiel du terrain de tennis ?</enonce>
+				<reponse id="q92R1" score="0">Le terrain de tennis</reponse>
+				<reponse id="q92R2" score="0">Le playground</reponse>
+				<reponse id="q92R3" score="0">La pelouse</reponse>
+				<reponse id="q92R4" score="1">Le court</reponse>
+			</question>
+			<question>
 				<enonce>Comment avez vous trouvez mon quizz ?</enonce>
-				<reponse id="q32R1" score="0">Pas mal</reponse>
-				<reponse id="q32R2" score="0">Pitoyable</reponse>
-				<reponse id="q32R3" score="0">Bien</reponse>
-				<reponse id="q32R4" score="1">Superbe</reponse>
+				<reponse id="q102R1" score="0">Pas mal</reponse>
+				<reponse id="q102R2" score="0">Pitoyable</reponse>
+				<reponse id="q102R3" score="0">Bien</reponse>
+				<reponse id="q102R4" score="1">Superbe</reponse>
 			</question>
 		</questions>
 	</questionnaire>

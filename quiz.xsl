@@ -6,7 +6,8 @@
     <xsl:template match="/">
         <head>
             <title>Quiz</title>
-            <link href="default.css" rel="stylesheet" type="text/css" media="all"/>
+            <link rel="shortcut icon" type="text/css" href="icon.ico"/>
+            <link href="style.css" rel="stylesheet" type="text/css" media="all"/>
             <!-- Bootstrap CSS -->
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"/></head>
         <body>
@@ -76,7 +77,16 @@
                                         </ul>
                                     </div>
                                     
-                                    <input class="form-control {$niveau}" type="text"  placeholder="Repondez 0, 1, 2 ou 3" style="width:50%;background-color:white;" />  
+                                    <input class="form-control {$niveau}" type="text"  placeholder="Repondez 0, 1, 2 ou 3" style="width:50%;background-color:white;" />
+                                    <xsl:for-each select="reponse">
+                                        <xsl:if test="@score=1">
+                                            <span class="reponse"><span style="font-weight:bold;">Reponse: </span><span style="color:green;"><xsl:value-of select="child::text()"/>.</span></span>
+                                        </xsl:if>
+                                        
+                                    </xsl:for-each>
+                                    
+                                    
+                                    
                                 </div>
                                 
                             </xsl:for-each>
@@ -104,7 +114,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
         
         <script>
-            
+            $('.reponse').hide();
             $('.questionnaire').hide();
             $("#score").hide();
             
@@ -215,6 +225,7 @@
                 }
                 else{
                      $('#score').fadeIn();
+                     $('.reponse').fadeIn();
                     document.getElementById("score").innerHTML="Résultat: "+score+"/"+reponse.length;
                     
                 }
